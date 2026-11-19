@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DriveBench | Replay comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="replay.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"><i data-lucide="route">&#8644;</i></span>DriveBench</a>
+      <a class="source" href="../reports/reference/comparison.json"><i data-lucide="file-json" aria-hidden="true"></i>Run data<i data-lucide="arrow-up-right" aria-hidden="true">&#8599;</i></a>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <div>
+        <div class="eyebrow"><span></span> SIMULATION EVALUATION <span class="slash">/</span> SEED 42</div>
+        <h1>Replay comparison</h1>
+      </div>
+      <div class="scenario-switch" role="group" aria-label="Scenario">
+        <button type="button" data-case="cyclist_lane_entry" aria-pressed="true"><i data-lucide="bike" aria-hidden="true"></i>Cyclist lane entry</button>
+        <button type="button" data-case="pedestrian_crossing" aria-pressed="false"><i data-lucide="footprints" aria-hidden="true"></i>Pedestrian crossing</button>
+      </div>
+    </div>
+
+    <section class="scenario-line" aria-label="Selected result">
+      <div class="case-label"><span id="case-number">01</span><h2 id="case-title">Cyclist lane entry</h2></div>
+      <p class="finding" id="finding" data-tone="positive" role="status">Loading replay</p>
+    </section>
+    <p id="load-error" class="error" role="alert" hidden></p>
+
+    <div class="panels" id="panels" aria-busy="true"></div>
+    <template id="panel-template">
+      <section class="run">
+        <div class="run-heading">
+          <div class="run-identity"><span class="version-role"></span><h3 class="version"></h3></div>
+          <span class="verdict"></span>
+        </div>
+        <div class="map">
+          <canvas width="1080" height="468" role="img"></canvas>
+          <div class="map-label"><span></span> WORLD VIEW</div>
+          <div class="map-event" hidden></div>
+        </div>
+        <dl class="telemetry">
+          <div><dt>Speed</dt><dd><span class="speed">--</span> <small>m/s</small></dd></div>
+          <div><dt>Accel command</dt><dd><span class="accel">--</span> <small>m/s&sup2;</small></dd></div>
+          <div><dt>Run time</dt><dd><span class="run-time">--</span> <small>s</small></dd></div>
+        </dl>
+      </section>
+    </template>
+
+    <section class="transport" aria-label="Shared playback">
+      <div class="transport-top">
+        <div class="controls">
+          <button type="button" class="play" id="play" title="Play" aria-label="Play" disabled>
+            <span class="play-symbol"><i data-lucide="play" aria-hidden="true">&#9654;</i></span>
+            <span class="pause-symbol" hidden><i data-lucide="pause" aria-hidden="true">&#10074;&#10074;</i></span>
+          </button>
+          <button type="button" class="icon-button" id="previous" title="Previous frame" aria-label="Previous frame" disabled><i data-lucide="skip-back" aria-hidden="true">&#8676;</i></button>
+          <button type="button" class="icon-button" id="next" title="Next frame" aria-label="Next frame" disabled><i data-lucide="skip-forward" aria-hidden="true">&#8677;</i></button>
+        </div>
+        <div class="clock"><output id="clock" aria-live="off">0.0 s</output><span> / </span><span id="duration">0.0 s</span></div>
+        <label class="rate"><span>Playback</span><select id="rate" aria-label="Playback speed"><option value="0.5">0.5&times;</option><option value="1" selected>1&times;</option><option value="2">2&times;</option></select></label>
+      </div>
+      <div class="rail">
+        <input type="range" id="timeline" min="0" max="0" value="0" step="1" aria-label="Shared replay timeline" disabled>
+      </div>
+      <div class="timeline-labels"><span>0.0 s</span><span id="marker"></span><span id="end-label">0.0 s</span></div>
+    </section>
+
+    <footer class="legend">
+      <span><i class="swatch ego"></i>Ego vehicle</span>
+      <span><i class="swatch actor"></i><span id="actor-label">Cyclist</span></span>
+      <span><i class="swatch route"></i>Planned route</span>
+      <span><i class="swatch goal"></i>Goal</span>
+      <span class="sampling">RECORDED AT 10 HZ</span>
+    </footer>
+  </main>
+</body>
+</html>

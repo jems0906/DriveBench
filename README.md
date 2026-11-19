@@ -33,6 +33,10 @@ python tools/compare_versions.py scenarios build/comparison --seed 42
 
 Use a fresh output directory for each variant set or comparison. Add `--trajectories` to the suite command to include every replay. The comparison writes both trajectories for each changed failure set; add `--fail-on-regression` to exit 1 if any paired run gains a failure category. Aggregate improvements never hide individual regressions from that gate.
 
+## Replay viewer
+
+Run `python -m http.server 8765 --bind 127.0.0.1` from the repository root, then open [the local viewer](http://127.0.0.1:8765/viewer/). No native build is needed: the viewer reads the checked-in seed-42 comparison, trajectories, and scenario geometry. It shows the cyclist improvement and pedestrian regression using one shared playback timeline.
+
 ## Evidence and developer guides
 
 - [Reference evaluation](docs/run_report.md): v2 repairs one cyclist case but regresses on three pedestrian cases at seed 42.
