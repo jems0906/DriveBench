@@ -1,0 +1,1016 @@
+{
+  "baseline": {
+    "version": "driver_v1",
+    "runs": 16,
+    "passed": 15,
+    "pass_rate": 0.9375,
+    "failures": {
+      "collision": 1,
+      "goal_not_reached": 1
+    }
+  },
+  "candidate": {
+    "version": "driver_v2",
+    "runs": 16,
+    "passed": 13,
+    "pass_rate": 0.8125,
+    "failures": {
+      "collision": 3,
+      "goal_not_reached": 3
+    }
+  },
+  "failure_delta": {
+    "collision": 2,
+    "goal_not_reached": 2
+  },
+  "pairs": [
+    {
+      "input": "clear_road.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "clear_road",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 24.48000137998238,
+          "route_length": 25.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.0000000000000027,
+          "max_jerk": 8.10000000000004,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "82188255f977d86ce9880f9b9f70a220cf1d7ea7953d8f0e7c8f592022b19d3f"
+      },
+      "candidate": {
+        "scenario": "clear_road",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 24.48000137998238,
+          "route_length": 25.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.0000000000000027,
+          "max_jerk": 8.10000000000004,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "82188255f977d86ce9880f9b9f70a220cf1d7ea7953d8f0e7c8f592022b19d3f"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "cutin_merge.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "cutin_merge",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.619274422687845,
+          "min_distance": {
+            "vehicle": 0.30199842038313085,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 46.98339536916064,
+          "route_length": 48.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 14
+        },
+        "trajectory_sha256": "ca9d17d473123b6f64eb14237d2011c18f92e1a6447d2a89142d06a2f7399efd"
+      },
+      "candidate": {
+        "scenario": "cutin_merge",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.619274422687845,
+          "min_distance": {
+            "vehicle": 0.30199842038313085,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 46.98339536916064,
+          "route_length": 48.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 14
+        },
+        "trajectory_sha256": "ca9d17d473123b6f64eb14237d2011c18f92e1a6447d2a89142d06a2f7399efd"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "cyclist_lane_entry.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "cyclist_lane_entry",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": false,
+        "failures": [
+          "collision",
+          "goal_not_reached"
+        ],
+        "metrics": {
+          "collision": true,
+          "min_ttc": 0.0,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": 0.0
+          },
+          "goal_reached": false,
+          "off_road_events": 0,
+          "distance_traveled": 14.839999999999998,
+          "route_length": 42.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 79.99999999999997,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "ec642f589921ef3d051bb27e07032cb0a40a8825321e1a152f3592bf6e8b6a2b"
+      },
+      "candidate": {
+        "scenario": "cyclist_lane_entry",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.8375,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": 0.26248809496813547
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 41.033338442250475,
+          "route_length": 42.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 7
+        },
+        "trajectory_sha256": "f1b9dcaa6ca69ebe39af59e4f9bc8aabac15d9ecec09538f72ce996542657c1f"
+      },
+      "resolved_failures": [
+        "collision",
+        "goal_not_reached"
+      ],
+      "new_failures": [],
+      "replay": "trajectories/cyclist_lane_entry.seed-42.json"
+    },
+    {
+      "input": "cyclist_share.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "cyclist_share",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": 0.6999999999999998
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 37.51666666789013,
+          "route_length": 38.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.9999999999999982,
+          "max_jerk": 8.999999999999986,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "9867cf5aca0d287ec625a4d6be4c89de8f65d4072a4fb4f81e0399e239658e39"
+      },
+      "candidate": {
+        "scenario": "cyclist_share",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": 0.6999999999999998
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 37.51666666789013,
+          "route_length": 38.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.9999999999999982,
+          "max_jerk": 8.999999999999986,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "9867cf5aca0d287ec625a4d6be4c89de8f65d4072a4fb4f81e0399e239658e39"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "delayed_pedestrian.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "delayed_pedestrian",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.8345335567132204,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.39150436447441767,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 41.6233064456561,
+          "route_length": 43.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 6.800000000000002,
+          "max_jerk": 93.50000000000004,
+          "harsh_brakes": 11
+        },
+        "trajectory_sha256": "74af0a0e84d15dd5965f36724c49f71d09e780821681ba40f24501c042dffa3d"
+      },
+      "candidate": {
+        "scenario": "delayed_pedestrian",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": false,
+        "failures": [
+          "collision",
+          "goal_not_reached"
+        ],
+        "metrics": {
+          "collision": true,
+          "min_ttc": 0.0,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.0,
+            "cyclist": null
+          },
+          "goal_reached": false,
+          "off_road_events": 0,
+          "distance_traveled": 21.95165605959618,
+          "route_length": 43.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 6.800000000000002,
+          "max_jerk": 68.00209810185542,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "dcc42a72348d48afbc21e05291c63aad2e151c1254b33d56a8f727abb283884c"
+      },
+      "resolved_failures": [],
+      "new_failures": [
+        "collision",
+        "goal_not_reached"
+      ],
+      "replay": "trajectories/delayed_pedestrian.seed-42.json"
+    },
+    {
+      "input": "driveway_pullout.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "driveway_pullout",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.7142857142857142,
+          "min_distance": {
+            "vehicle": 0.4078313317990579,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 39.1466677399863,
+          "route_length": 40.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 6
+        },
+        "trajectory_sha256": "f3104e728dd1c4654cf7f3e874681338c0b218e8d7b73f3586a4353cbad5940b"
+      },
+      "candidate": {
+        "scenario": "driveway_pullout",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.7142857142857142,
+          "min_distance": {
+            "vehicle": 0.4078313317990579,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 39.1466677399863,
+          "route_length": 40.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 6
+        },
+        "trajectory_sha256": "f3104e728dd1c4654cf7f3e874681338c0b218e8d7b73f3586a4353cbad5940b"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "parked_car.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "parked_car",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": 0.9499999999999998,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 33.3533333349563,
+          "route_length": 34.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.6999999999999957,
+          "max_jerk": 7.499999999999929,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "2e82ff7dadfaf679e2e301d9ac87e3897bea07068531e9739aeb7a00c15f652b"
+      },
+      "candidate": {
+        "scenario": "parked_car",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": 0.9499999999999998,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 33.3533333349563,
+          "route_length": 34.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.6999999999999957,
+          "max_jerk": 7.499999999999929,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "2e82ff7dadfaf679e2e301d9ac87e3897bea07068531e9739aeb7a00c15f652b"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "pedestrian_crossing.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "pedestrian_crossing",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.84375,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.45773900860643324,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 40.736679699618534,
+          "route_length": 42.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 8
+        },
+        "trajectory_sha256": "6c12de90a3e650ca37928aed979dc3532eab98cc92efc2a7952db04c0a6b0001"
+      },
+      "candidate": {
+        "scenario": "pedestrian_crossing",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": false,
+        "failures": [
+          "collision",
+          "goal_not_reached"
+        ],
+        "metrics": {
+          "collision": true,
+          "min_ttc": 0.0,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.0,
+            "cyclist": null
+          },
+          "goal_reached": false,
+          "off_road_events": 0,
+          "distance_traveled": 15.0,
+          "route_length": 42.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 79.99999999999997,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "94c97ca9d7f14e03a50f844a9473e064a2d28c156edbd15607cf059e00107de0"
+      },
+      "resolved_failures": [],
+      "new_failures": [
+        "collision",
+        "goal_not_reached"
+      ],
+      "replay": "trajectories/pedestrian_crossing.seed-42.json"
+    },
+    {
+      "input": "right_turn.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "right_turn",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 29.83892910818628,
+          "route_length": 31.152982445082948,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.9999999999999982,
+          "max_jerk": 15.247731355642102,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "b3b6db06a77d3307747d04b99e6b35cef6364b4002569634ee1efcadebafcf81"
+      },
+      "candidate": {
+        "scenario": "right_turn",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 29.83892910818628,
+          "route_length": 31.152982445082948,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 2.9999999999999982,
+          "max_jerk": 15.247731355642102,
+          "harsh_brakes": 0
+        },
+        "trajectory_sha256": "b3b6db06a77d3307747d04b99e6b35cef6364b4002569634ee1efcadebafcf81"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "staggered_crossings.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "staggered_crossings",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 2.119090909090909,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.34271890814485845,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 48.90134990380069,
+          "route_length": 50.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 16
+        },
+        "trajectory_sha256": "f5bbd846e8865829158b8d0a859feb04798a85dc08a59d3c35bae74ae44887ea"
+      },
+      "candidate": {
+        "scenario": "staggered_crossings",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": false,
+        "failures": [
+          "collision",
+          "goal_not_reached"
+        ],
+        "metrics": {
+          "collision": true,
+          "min_ttc": 0.0,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": 0.0,
+            "cyclist": null
+          },
+          "goal_reached": false,
+          "off_road_events": 0,
+          "distance_traveled": 12.975163272188514,
+          "route_length": 50.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 80.20346692185471,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "3c254fe89a607ddfa1584ae5379e209ae36d4d79c4e4b0306f2285503c573eca"
+      },
+      "resolved_failures": [],
+      "new_failures": [
+        "collision",
+        "goal_not_reached"
+      ],
+      "replay": "trajectories/staggered_crossings.seed-42.json"
+    },
+    {
+      "input": "stop_sign.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "stop_sign",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 30.022756749018495,
+          "route_length": 31.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.007334809171156,
+          "max_jerk": 30.849497649046995,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "208a77bd1ae528c9b64cdba7e232c9cf74da48f0a4ec2e23330ec5f7cb7d8ef6"
+      },
+      "candidate": {
+        "scenario": "stop_sign",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 30.022756749018495,
+          "route_length": 31.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.007334809171156,
+          "max_jerk": 30.849497649046995,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "208a77bd1ae528c9b64cdba7e232c9cf74da48f0a4ec2e23330ec5f7cb7d8ef6"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "sudden_brake.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "sudden_brake",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.5362068965517262,
+          "min_distance": {
+            "vehicle": 3.739849540804947,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 46.83336373088873,
+          "route_length": 48.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 8.0,
+          "max_jerk": 110.0,
+          "harsh_brakes": 4
+        },
+        "trajectory_sha256": "0262afe71fa265d510d6da25a23585c79e2276f63f50fa9d4fc7fa2aaf9fed19"
+      },
+      "candidate": {
+        "scenario": "sudden_brake",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.5362068965517262,
+          "min_distance": {
+            "vehicle": 3.739849540804947,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 46.83336373088873,
+          "route_length": 48.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 8.0,
+          "max_jerk": 110.0,
+          "harsh_brakes": 4
+        },
+        "trajectory_sha256": "0262afe71fa265d510d6da25a23585c79e2276f63f50fa9d4fc7fa2aaf9fed19"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "two_stop_signs.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "two_stop_signs",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 43.353531904771586,
+          "route_length": 44.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.5171547095606015,
+          "max_jerk": 24.993509152354658,
+          "harsh_brakes": 2
+        },
+        "trajectory_sha256": "f3e2836fa5ff41708cade97d942a06fef41793e178f69b5bd387b488ce37a1e5"
+      },
+      "candidate": {
+        "scenario": "two_stop_signs",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": null,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 43.353531904771586,
+          "route_length": 44.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 3.5171547095606015,
+          "max_jerk": 24.993509152354658,
+          "harsh_brakes": 2
+        },
+        "trajectory_sha256": "f3e2836fa5ff41708cade97d942a06fef41793e178f69b5bd387b488ce37a1e5"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "unprotected_left.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "unprotected_left",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": 0.3351828160640572,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 36.080692134483144,
+          "route_length": 37.15298244508295,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 8.0,
+          "max_jerk": 71.93489154422052,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "e3e2feb96114e777a35d2678bd0df8c38745169a500b359b4e3f837266500179"
+      },
+      "candidate": {
+        "scenario": "unprotected_left",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": null,
+          "min_distance": {
+            "vehicle": 0.3351828160640572,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 36.080692134483144,
+          "route_length": 37.15298244508295,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 8.0,
+          "max_jerk": 71.93489154422052,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "e3e2feb96114e777a35d2678bd0df8c38745169a500b359b4e3f837266500179"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "wet_lead.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "wet_lead",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.3939133827545913,
+          "min_distance": {
+            "vehicle": 3.3775659019946147,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 43.157435319482566,
+          "route_length": 44.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 4.400000000000004,
+          "max_jerk": 44.000000000000036,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "91fd8583d40d33409248721536f0040d9072fd51d6cdb5055c8806ca7df84e71"
+      },
+      "candidate": {
+        "scenario": "wet_lead",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.3939133827545913,
+          "min_distance": {
+            "vehicle": 3.3775659019946147,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 43.157435319482566,
+          "route_length": 44.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 4.400000000000004,
+          "max_jerk": 44.000000000000036,
+          "harsh_brakes": 1
+        },
+        "trajectory_sha256": "91fd8583d40d33409248721536f0040d9072fd51d6cdb5055c8806ca7df84e71"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    },
+    {
+      "input": "yielding_cross_traffic.json",
+      "seed": 42,
+      "baseline": {
+        "scenario": "yielding_cross_traffic",
+        "driver_version": "driver_v1",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.9350202429149794,
+          "min_distance": {
+            "vehicle": 0.5026967276599316,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 35.11134454167194,
+          "route_length": 36.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 10
+        },
+        "trajectory_sha256": "e62eead53349d1fc3b4b040017494f196d7c37b6888b91f3400569df6368a8bb"
+      },
+      "candidate": {
+        "scenario": "yielding_cross_traffic",
+        "driver_version": "driver_v2",
+        "seed": 42,
+        "passed": true,
+        "failures": [],
+        "metrics": {
+          "collision": false,
+          "min_ttc": 1.9350202429149794,
+          "min_distance": {
+            "vehicle": 0.5026967276599316,
+            "pedestrian": null,
+            "cyclist": null
+          },
+          "goal_reached": true,
+          "off_road_events": 0,
+          "distance_traveled": 35.11134454167194,
+          "route_length": 36.0,
+          "stop_sign_violations": 0,
+          "speed_limit_violations": 0,
+          "lane_departures": 0,
+          "max_acceleration": 7.999999999999998,
+          "max_jerk": 109.99999999999996,
+          "harsh_brakes": 10
+        },
+        "trajectory_sha256": "e62eead53349d1fc3b4b040017494f196d7c37b6888b91f3400569df6368a8bb"
+      },
+      "resolved_failures": [],
+      "new_failures": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "name": "missing_route", "max_ticks": 100, "goal_radius": 1, "perception_noise": 0, "friction": 1,
+  "ego": {"position": [0, 0], "heading": 0, "speed": 0, "length": 4, "width": 1.8}
+}

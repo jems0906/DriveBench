@@ -1,0 +1,4 @@
+.git
+build*
+.venv
+**/__pycache__

@@ -1,0 +1,8 @@
+{
+  "name": "sudden_brake", "max_ticks": 220, "goal_radius": 1.5, "perception_noise": 0.1, "friction": 1,
+  "ego": {"position": [0, 0], "heading": 0, "speed": 8, "length": 4, "width": 1.8},
+  "route": [[0, 0], [48, 0]],
+  "road": {"lanes": [[[-5, -3], [55, -3], [55, 3], [-5, 3]]], "speed_limit": 8, "lane_tolerance": 1, "stop_signs": []},
+  "agents": [{"id": "lead", "class": "vehicle", "position": [14, 0], "heading": 0, "speed": 8, "length": 4, "width": 1.8, "waypoints": [[95, 0]], "cruise_speed": 8, "start_tick": 0, "brake_tick": 10, "resume_tick": 48}],
+  "criteria": {"no_collision": true, "goal_reached": true, "no_off_road": true, "obey_speed_limit": true}
+}

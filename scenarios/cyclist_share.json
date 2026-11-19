@@ -1,0 +1,8 @@
+{
+  "name": "cyclist_share", "max_ticks": 140, "goal_radius": 1, "perception_noise": 0.12, "friction": 1,
+  "ego": {"position": [0, 0], "heading": 0, "speed": 6, "length": 4, "width": 1.8},
+  "route": [[0, 0], [38, 0]],
+  "road": {"lanes": [[[-5, -3], [44, -3], [44, 3], [-5, 3]]], "speed_limit": 7, "lane_tolerance": 1, "stop_signs": []},
+  "agents": [{"id": "bike", "class": "cyclist", "position": [8, 1.9], "heading": 0, "speed": 3, "length": 1.7, "width": 0.6, "waypoints": [[55, 1.9]], "cruise_speed": 3, "start_tick": 0}],
+  "criteria": {"no_collision": true, "goal_reached": true, "no_off_road": true, "keep_lane": true, "max_harsh_brakes": 0}
+}

@@ -1,0 +1,8 @@
+{
+  "name": "parked_car", "max_ticks": 140, "goal_radius": 1, "perception_noise": 0.1, "friction": 0.9,
+  "ego": {"position": [0, 0], "heading": 0, "speed": 4, "length": 4, "width": 1.8},
+  "route": [[0, 0], [34, 0]],
+  "road": {"lanes": [[[-5, -3.2], [40, -3.2], [40, 4], [-5, 4]]], "speed_limit": 6, "lane_tolerance": 0.8, "stop_signs": []},
+  "agents": [{"id": "parked", "class": "vehicle", "position": [14, 2.8], "heading": 0, "speed": 0, "length": 4.4, "width": 1.9, "waypoints": [], "cruise_speed": 0, "start_tick": 0}],
+  "criteria": {"no_collision": true, "goal_reached": true, "no_off_road": true, "keep_lane": true, "max_harsh_brakes": 0}
+}
