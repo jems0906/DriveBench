@@ -2,6 +2,10 @@
 
 A deterministic, closed-loop 2D driving simulation core written in C++, with JSON scenarios, a rule-based autonomous driver, and an evaluator that scores every run. The world moves in response to ego commands, and yielding traffic reacts to ego's new state on subsequent ticks. This is a portfolio-scale simulator, not a road-safety certification tool.
 
+![DriveBench replay: v2 avoids a cyclist collision that v1 does not, then collides in a pedestrian crossing that v1 passes.](docs/replay-demo.gif)
+
+**Seed 42:** V2 avoids the cyclist collision but regresses on the pedestrian crossing. [See the metrics and paired trajectories](docs/run_report.md).
+
 ## Build and test
 
 Requires CMake 3.20+, a C++20 compiler, and Python 3.9-3.13 with development headers for the optional binding. CMake finds or fetches nlohmann/json and pybind11. The C++ library target is `drivebench` (`libdrivebench` on Unix).
