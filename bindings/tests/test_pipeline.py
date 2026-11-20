@@ -49,7 +49,7 @@ class PipelineTest(unittest.TestCase):
             comparison = directory / "comparison"
             command("compare_versions.py", SCENARIOS, comparison, "--fail-on-regression", status=1)
             report = json.loads((comparison / "comparison.json").read_bytes())
-            self.assertEqual(report["baseline"]["runs"], 16)
+            self.assertEqual(report["baseline"]["runs"], 20)
             self.assertEqual(report["failure_delta"]["collision"], 2)
             pairs = {pair["input"]: pair for pair in report["pairs"]}
             self.assertIn("collision", pairs["cyclist_lane_entry.json"]["resolved_failures"])

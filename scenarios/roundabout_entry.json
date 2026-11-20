@@ -1,0 +1,9 @@
+{
+  "name": "roundabout_entry", "max_ticks": 230, "goal_radius": 1.5, "perception_noise": 0.14,
+  "weather": {"friction": 0.9, "visibility": 1},
+  "ego": {"position": [0, 0], "heading": 0, "speed": 5, "length": 4, "width": 1.8},
+  "route": [[0, 0], [10, 0], [14, 2], [18, 6], [24, 7]],
+  "road": {"lanes": [[[-5, -3], [30, -3], [30, 10], [-5, 10]]], "speed_limit": 6, "lane_tolerance": 1.2, "stop_signs": []},
+  "agents": [{"id": "circulating", "class": "vehicle", "position": [16, 10], "heading": 3.141592653589793, "speed": 5, "length": 4, "width": 1.8, "waypoints": [[8, 10], [8, 3]], "cruise_speed": 5, "start_tick": 0}],
+  "criteria": {"no_collision": true, "goal_reached": true, "no_off_road": true, "keep_lane": true}
+}

@@ -95,6 +95,31 @@ void scenarios(std::string_view test, const std::filesystem::path& directory) {
         check(drive("clear_road", "driver_v1").verdict.passed, "clear road passes");
         const auto collision = drive("pedestrian_crossing", "never_brake");
         check(!collision.verdict.passed && collision.metrics.collision && failed_with(collision, "collision"), "pedestrian collision fails");
+
+        AgentSpec walker;
+        walker.id = "steered_pedestrian";
+        walker.kind = AgentClass::pedestrian;
+        walker.spawn = {{{4, 0}, 1.5707963267948966, 0.8}, 0.5, 0.5};
+        walker.waypoints = {{4, 2.5}};
+        walker.cruise_speed = 0.8;
+        WorldConfig world;
+        world.ego = {{{0, 0}, 0, 6}, 4, 1.8};
+        world.lanes = {{{{-5, -3}, {12, -3}, {12, 3}, {-5, 3}}}};
+        world.traffic = {walker};
+        World steering_world(world);
+        bool steering_collision = false;
+        for (int tick = 0; tick < 30 && !steering_collision; ++tick) {
+            steering_world.step({0, 0.55});
+            steering_collision = overlaps(steering_world.ego(), steering_world.traffic().front().box);
+        }
+        check(steering_collision, "positive steering reaches a pedestrian");
+        Frame collided_frame;
+        collided_frame.ego = steering_world.ego();
+        collided_frame.actors.push_back({"steered_pedestrian", AgentClass::pedestrian, steering_world.traffic().front().box});
+        const auto steering_metrics = measure({collided_frame}, {8, 1, {}}, 12);
+        const auto steering_verdict = score(steering_metrics, {true, false, false, false, false, false, std::nullopt});
+        check(steering_metrics.collision && steering_verdict.failures.size() == 1 &&
+              steering_verdict.failures.front() == "collision", "steered pedestrian collision category");
     } else if (test == "harsh_suite") {
         for (const auto name : {"unprotected_left", "pedestrian_crossing", "driveway_pullout", "cutin_merge", "sudden_brake", "wet_lead"}) {
             check(drive(name, "driver_v1").verdict.passed, name);

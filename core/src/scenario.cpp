@@ -76,7 +76,16 @@ Scenario load_scenario(const std::filesystem::path& path) {
         scenario.max_ticks = count(root.at("max_ticks"), 1, 6000, "max_ticks");
         scenario.goal_radius = number(root.at("goal_radius"), 0.1, 10, "goal_radius");
         scenario.perception_noise = number(root.at("perception_noise"), 0, 1, "perception_noise");
-        scenario.world.friction = number(root.at("friction"), 0.1, 1, "friction");
+        if (root.contains("friction") && root.contains("weather")) {
+            throw std::invalid_argument(path.string() + ": use weather.friction or friction, not both");
+        }
+        if (root.contains("weather")) {
+            require(root.at("weather").is_object(), "weather must be an object");
+            require(root.at("weather").contains("friction"), "weather.friction is required");
+            scenario.world.friction = number(root.at("weather").at("friction"), 0.1, 1, "weather.friction");
+        } else {
+            scenario.world.friction = number(root.at("friction"), 0.1, 1, "friction");
+        }
         scenario.world.ego = box(root.at("ego"));
         scenario.route = points(root.at("route"), 2);
         const auto& road = root.at("road");
