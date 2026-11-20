@@ -1,7 +1,7 @@
 #include "drivebench/run_result.hpp"
 
-#include <bit>
 #include <climits>
+#include <cstring>
 
 namespace drivebench {
 
@@ -11,7 +11,11 @@ std::string trajectory_bytes(const std::vector<Frame>& frames) {
     const auto integer = [&](std::uint64_t value) {
         for (int shift = 0; shift < 64; shift += 8) result.push_back(static_cast<char>((value >> shift) & 255U));
     };
-    const auto real = [&](double value) { integer(std::bit_cast<std::uint64_t>(value)); };
+    const auto real = [&](double value) {
+        std::uint64_t encoded{};
+        std::memcpy(&encoded, &value, sizeof(encoded));
+        integer(encoded);
+    };
     const auto box = [&](const Box& value) {
         real(value.state.position.x);
         real(value.state.position.y);

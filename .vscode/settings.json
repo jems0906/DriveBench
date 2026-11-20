@@ -1,0 +1,8 @@
+{
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/build/bindings/Release",
+    "${workspaceFolder}/build/bindings"
+  ]
+}

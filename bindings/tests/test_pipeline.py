@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import pydrivebench
+import pydrivebench  # pyright: ignore[reportMissingImports]
 
 
 ROOT = Path(__file__).resolve().parents[2]
