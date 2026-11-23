@@ -1,5 +1,8 @@
 # DriveBench
 
+[![CTest](https://github.com/jems0906/DriveBench/actions/workflows/ci.yml/badge.svg)](https://github.com/jems0906/DriveBench/actions/workflows/ci.yml)
+[![Deploy viewer](https://github.com/jems0906/DriveBench/actions/workflows/deploy-viewer.yml/badge.svg)](https://github.com/jems0906/DriveBench/actions/workflows/deploy-viewer.yml)
+
 A deterministic, closed-loop 2D driving simulation core written in C++, with JSON scenarios, a rule-based autonomous driver, and an evaluator that scores every run. The world moves in response to ego commands, and yielding traffic reacts to ego's new state on subsequent ticks. This is a portfolio-scale simulator, not a road-safety certification tool.
 
 ![DriveBench replay: v2 avoids a cyclist collision that v1 does not, then collides in a pedestrian crossing that v1 passes.](docs/replay-demo.gif)
@@ -39,7 +42,9 @@ Use a fresh output directory for each variant set or comparison. Add `--trajecto
 
 ## Replay viewer
 
-Run `python -m http.server 8765 --bind 127.0.0.1` from the repository root, then open [the local viewer](http://127.0.0.1:8765/viewer/). No native build is needed: the viewer reads the checked-in seed-42 comparison, trajectories, and scenario geometry. It shows the cyclist improvement and pedestrian regression using one shared playback timeline.
+Run `python -m http.server 8765 --bind 127.0.0.1` from the repository root, then open [the local viewer](http://127.0.0.1:8765/viewer/). The [public Azure viewer](https://drivebenchstore2026.z1.web.core.windows.net/) reads the same seed-42 comparison, trajectories, and scenario geometry. It shows the cyclist improvement and pedestrian regression using one shared playback timeline.
+
+The deployed viewer smoke test switches between both replay cases and verifies the 390 px mobile layout. Set `SITE_URL` and run `node viewer/test-browser.cjs` after installing Playwright and Chromium.
 
 ## Evidence and developer guides
 

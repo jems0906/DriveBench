@@ -19,6 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install browser test dependency
+        run: npm install --no-save --ignore-scripts playwright-core
+
       - name: Assemble static site
         shell: bash
         run: |
@@ -29,6 +37,12 @@ jobs:
           cp reports/reference/trajectories/*.json site/reports/trajectories/
           cp scenarios/*.json site/scenarios/
           sed -i 's#../reports/reference/comparison.json#./reports/comparison.json#g' site/index.html
+
+      - name: Install Chromium
+        run: npx playwright install chromium
+
+      - name: Smoke test static site
+        run: node viewer/test-browser.cjs
 
       - name: Upload to Azure Storage
         env:
