@@ -1,0 +1,48 @@
+name: Deploy viewer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'viewer/**'
+      - 'scenarios/**'
+      - 'reports/reference/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site/reports/trajectories site/scenarios
+          cp viewer/index.html viewer/styles.css viewer/replay.js site/
+          cp reports/reference/comparison.json site/reports/comparison.json
+          cp reports/reference/trajectories/*.json site/reports/trajectories/
+          cp scenarios/*.json site/scenarios/
+          sed -i 's#../reports/reference/comparison.json#./reports/comparison.json#g' site/index.html
+
+      - name: Upload to Azure Storage
+        env:
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          az storage blob upload-batch \
+            --account-name drivebenchstore2026 \
+            --destination '$web' \
+            --source site \
+            --auth-mode key \
+            --account-key "$AZURE_STORAGE_KEY" \
+            --overwrite true
+
+      - name: Verify public endpoint
+        run: |
+          curl --fail --show-error --silent \
+            https://drivebenchstore2026.z1.web.core.windows.net/reports/comparison.json >/dev/null

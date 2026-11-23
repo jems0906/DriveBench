@@ -11,7 +11,7 @@ const previous = byId('previous');
 const next = byId('next');
 const rate = byId('rate');
 const switches = [...document.querySelectorAll('[data-case]')];
-const reference = new URL('../reports/reference/', import.meta.url);
+const deployed = location.pathname === '/' || !location.pathname.endsWith('/viewer/');
 const cache = new Map();
 let report;
 let active;
@@ -30,17 +30,23 @@ async function json(url) {
 
 async function load(id) {
   if (cache.has(id)) return cache.get(id);
-  report ??= json(new URL('comparison.json', reference)).catch((error) => {
+  const comparisonUrl = deployed
+    ? new URL('./reports/comparison.json', location.origin + '/')
+    : new URL('../reports/reference/comparison.json', import.meta.url);
+  report ??= json(comparisonUrl).catch((error) => {
     report = undefined;
     throw error;
   });
   const { pairs } = await report;
   const pair = pairs.find((entry) => entry.input === `${id}.json` && entry.seed === 42);
   if (!pair?.replay) throw new Error('Missing reference replay');
-  const [replay, scenario] = await Promise.all([
-    json(new URL(pair.replay, reference)),
-    json(new URL(`../scenarios/${id}.json`, import.meta.url)),
-  ]);
+  const replayUrl = deployed
+    ? new URL(`./reports/trajectories/${pair.replay.split('/').at(-1)}`, location.origin + '/')
+    : new URL(pair.replay, new URL('../reports/reference/', import.meta.url));
+  const scenarioUrl = deployed
+    ? new URL(`./scenarios/${id}.json`, location.origin + '/')
+    : new URL(`../scenarios/${id}.json`, import.meta.url);
+  const [replay, scenario] = await Promise.all([json(replayUrl), json(scenarioUrl)]);
   const runs = ['baseline', 'candidate'].map((key) => ({ key, summary: pair[key], frames: replay[key] }));
   const last = Math.max(...runs.map(({ frames }) => terminal(frames)));
   const points = [...scenario.road.lanes.flat(), ...scenario.route];
