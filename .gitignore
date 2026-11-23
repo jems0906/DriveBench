@@ -1,4 +1,7 @@
 /build*/
 /.venv/
+node_modules/
 __pycache__/
+*.py[cod]
+.playwright/
 *.py[cod]
